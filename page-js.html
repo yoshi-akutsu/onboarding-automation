@@ -1,0 +1,66 @@
+<script>
+  // New Student Start Up
+  let newStudentStartUpBtn = document.getElementById("newStudentStartUp");
+  let scheduled = document.getElementById("scheduled");
+  let date = document.getElementById("date");
+  let studentName = document.getElementById("studentName");
+  let classYear = document.getElementById("classYear");
+  let year = classYear.options[classYear.selectedIndex].value;
+  let email = document.getElementById("email");
+  let email2 = document.getElementById("email2");
+  let email3 = document.getElementById("email3");
+  let email4 = document.getElementById("email4");
+
+  scheduled.addEventListener("click", () => {
+    date.disabled === true ? (date.disabled = false) : (date.disabled = true);
+  });
+
+  newStudentStartUpBtn.addEventListener("click", () => {
+    // Check for valid inputs
+    if (studentName.value.length < 1) {
+      throwError(1);
+    }
+    if (email.value.length < 1) {
+      throwError(2);
+    }
+
+    let startUpObject = {
+      name: studentName.value,
+      classYear: year,
+      email: email.value,
+      email2: email2.value,
+      email3: email3.value,
+      email4: email4.value,
+      location: getLocation(),
+      date: date.disabled === true ? null : date.textContent,
+    };
+
+    console.log(startUpObject);
+    google.script.run.withSuccessHandler(handleSuccess).run(startUpObject);
+  });
+
+  function getLocation() {
+    let online = document.getElementById("online");
+    let bethel = document.getElementById("bethel");
+    let powell = document.getElementById("powell");
+
+    if (online.checked === true) {
+      return "online";
+    }
+    if (bethel.checked === true) {
+      return "bethel";
+    }
+    if (powell.checked === true) {
+      return "powell";
+    }
+  }
+
+  function throwError(err) {
+    console.log("Invalid inputs." + err);
+  }
+  function handleSuccess() {
+    console.log(
+      "Folder created successfully. Welcome email drafted successfully."
+    );
+  }
+</script>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+  </head>
+  <body>
+    <p>
+      Hello
+      <?= name ?>
+      and family,
+    </p>
+
+    <p>
+      Hope this finds you well. We are excited to begin our college planning
+      efforts with
+      <?= firstName ?>. To begin working together, we have a short list of items
+      to review.
+    </p>
+    <ul>
+      <li>
+        Let's get together sometime in the next couple of weeks for an
+        orientation.
+        <strong
+          >This orientation will take place
+          <?= location ?></strong
+        >. New students and parents are asked to attend. Here are some of my
+        available times for our one and a half hour orientation:
+      </li>
+      <ul>
+        <li><?= availability[1]?></li>
+        <li><?= availability[2]?></li>
+        <li><?= availability[3]?></li>
+        <li><?= availability[4]?></li>
+        <li><?= availability[5]?></li>
+        <li><?= availability[6]?></li>
+      </ul>
+      <br />
+      <li>
+        <strong>I will be the advisor you’ll be working with.</strong> Feel free
+        to call me at (614) 329-6633 x<?= advisor.phoneExtension?>, or simply
+        reply to this email if you have any questions.
+      </li>
+      <br />
+      <li>
+        At College Liftoff, we use Google Drive to pass along information and
+        share relevant forms and paperwork, including your student's College
+        Book. Please follow <a href="<?" ="sharingLink" ?>>this link</a> to
+        access your student's folder. If you have any questions, or need
+        assistance with Google Drive, please feel free to contact us. We will
+        have a brief tutorial for new users at New Family Orientation.
+      </li>
+      <br />
+      <li>
+        Please complete our <strong>New Client Intake Forms</strong> prior to
+        Orientation. There is one for parents to complete (<a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSef54IFnCUkOwLs_i9x4gN9GUsf2Xzq16QKf8nJOjkvSkoJ1A/viewform?usp=sf_link"
+          >click here to access parent form</a
+        >) and one for students to complete (<a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf1EgpWjlxwzitnEPJ5Qkggs8IRT6iseEbvzqNwdfoihayL1A/viewform?usp=sf_link"
+          >click here to access student form</a
+        >). This information is for College Liftoff use only; your responses
+        stay confidential and are not shared with any third parties.
+      </li>
+      <br />
+      <li>
+        We have several options to choose from as far as payment or payment
+        plans. Both Credit card or Check work great. Credit cards and payment
+        plans will be set up during orientation. If you would like to pay by
+        check you can either bring it to orientation if you’re a local client or
+        mail payment to 5202 Bethel Reed Park #140, Columbus, OH 43220. Let me
+        know if you have any questions about this.
+      </li>
+      <ul>
+        <li>
+          <strong>Payment in full (10% savings overall)</strong>: For check
+          option please make out to College Liftoff
+        </li>
+        <li>
+          <strong>449/month (5% savings overall)</strong>: For check option -
+          please write VOID on check noting “449" in memo line. Payment split
+          until retainer is covered through the Payment Plan, built in $10/mo
+          finance charge
+        </li>
+        <li>
+          <strong>249/month</strong> :  For check option - please write VOID on
+          check noting “249" in memo line. Payment split until retainer is
+          covered through the Payment Plan, built in $10/mo finance charge
+        </li>
+      </ul>
+    </ul>
+    <p>
+      If you have any questions, please don’t hesitate to contact us via phone
+      or email. We'll see you soon!
+    </p>
+    <p>Many thanks,</p>
+    <p>Your College Liftoff Team</p>
+    <p></p>
+    <p>--</p>
+    <div dir="ltr">
+      <div dir="ltr">
+        <span
+          style="
+            color: rgb(0, 74, 143);
+            font-family: 'times new roman';
+            font-size: xx-large;
+            line-height: 46.08px;
+            white-space: pre-wrap;
+          "
+          ><?= advisor.fullName?></span
+        >
+      </div>
+      <div dir="ltr">
+        <span
+          style="
+            color: rgb(0, 74, 143);
+            font-family: 'times new roman';
+            white-space: pre-wrap;
+          "
+          ><i
+            ><font size="4"><?= advisor.position?></font></i
+          ></span
+        >
+      </div>
+      <div dir="ltr">
+        <p dir="ltr" style="margin-top: 0pt; margin-bottom: 0pt;">
+          <span style="vertical-align: baseline;"
+            ><font color="#004a8f" face="times new roman"
+              ><span
+                style="
+                  font-size: 14.6667px;
+                  line-height: 1.44;
+                  white-space: pre-wrap;
+                "
+                ><img
+                  src="https://ci3.googleusercontent.com/proxy/CrsO6SgagAcxFR8NqrkCBtWMvCJaPC1Z5r3IAuMHNKa82oZd6tF2DrYqpk1xxsDa5VR148MTieDTP_4lOTZwgzP835B6AUDa_v7EDJVdWQqnkvOYPwzeCRo5d2VfD8dp3FDgKcC-OTt5sL0gR838V8aj_ccJtwYcwePNzj6v-OERFQoev1Hjow=s0-d-e1-ft#https://drive.google.com/a/collegeliftoff.org/uc?id=0BxAIVTCB557CT3pENENENjBiUTd0M2FDQjlPdkE3bXQtYURj&amp;export=download"
+                  width="200"
+                  height="58" />
+                <br /></span></font
+          ></span>
+        </p>
+        <p
+          dir="ltr"
+          style="
+            color: rgb(80, 0, 80);
+            font-size: 12.8px;
+            line-height: 1.44;
+            margin-top: 0pt;
+            margin-bottom: 0pt;
+          "
+        >
+          <span
+            style="
+              font-size: 14.6667px;
+              font-family: 'times new roman';
+              color: rgb(0, 74, 143);
+              vertical-align: baseline;
+              white-space: pre-wrap;
+            "
+            >614-329-6633x<?= advisor.phoneExtension?> </span
+          ><span
+            style="
+              font-size: 14.6667px;
+              font-family: 'times new roman';
+              color: rgb(242, 177, 15);
+              vertical-align: baseline;
+              white-space: pre-wrap;
+            "
+            >· </span
+          ><span
+            style="
+              font-size: 14.6667px;
+              font-family: 'times new roman';
+              color: rgb(0, 74, 143);
+              vertical-align: baseline;
+              white-space: pre-wrap;
+            "
+            ><a href="mailto:yoshi@collegeliftoff.com" target="_blank"
+              ><?= advisor.email ?></a
+            ></span
+          >
+        </p>
+        <p
+          dir="ltr"
+          style="
+            color: rgb(80, 0, 80);
+            font-size: 12.8px;
+            line-height: 1.2;
+            margin-top: 0pt;
+            margin-bottom: 0pt;
+          "
+        >
+          <span
+            style="
+              font-size: 14.6667px;
+              font-family: 'times new roman';
+              color: rgb(0, 74, 143);
+              vertical-align: baseline;
+              white-space: pre-wrap;
+            "
+            ><a
+              href="http://www.collegeliftoff.com/"
+              target="_blank"
+              data-saferedirecturl="https://www.google.com/url?q=http://www.collegeliftoff.com/&amp;source=gmail&amp;ust=1591287800459000&amp;usg=AFQjCNG84Jo3ZpRDVe179cMBOG2kLpPulA"
+              >www.collegeliftoff.com</a
+            ></span
+          >
+        </p>
+        <p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;">
+          <font color="#073763" face="times new roman, serif"
+            >Follow us on&nbsp;<a
+              href="http://www.facebook.com/CollegeLiftoff"
+              target="_blank"
+              data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/CollegeLiftoff&amp;source=gmail&amp;ust=1591287800459000&amp;usg=AFQjCNFwTDQshNaYEwbhMPF2YrXu5MEWwQ"
+              >Fac</a
+            ><a
+              href="http://www.facebook.com/CollegeLiftoff"
+              target="_blank"
+              data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/CollegeLiftoff&amp;source=gmail&amp;ust=1591287800459000&amp;usg=AFQjCNFwTDQshNaYEwbhMPF2YrXu5MEWwQ"
+              >ebook</a
+            >&nbsp;and&nbsp;<a
+              href="https://www.instagram.com/collegeliftoff"
+              target="_blank"
+              data-saferedirecturl="https://www.google.com/url?q=https://www.instagram.com/collegeliftoff&amp;source=gmail&amp;ust=1591287800459000&amp;usg=AFQjCNFKHCN2X-C7aYM2Bdc9PKE08wqoHQ"
+              >Instagram</a
+            >.</font
+          >
+        </p>
+        <p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;">
+          <font color="#073763" face="times new roman, serif"
+            >Subscribe to our podcast,&nbsp;<a
+              href="https://podcasts.apple.com/us/podcast/affording-college-with-aaron-greene/id1198569922"
+              target="_blank"
+              data-saferedirecturl="https://www.google.com/url?q=https://podcasts.apple.com/us/podcast/affording-college-with-aaron-greene/id1198569922&amp;source=gmail&amp;ust=1591287800459000&amp;usg=AFQjCNEpQMLys10cbhXFFgPjZ4mbIlM1SQ"
+              >Affording College</a
+            >!</font
+          >
+        </p>
+        <p
+          dir="ltr"
+          style="
+            color: rgb(80, 0, 80);
+            font-size: 12.8px;
+            line-height: 1.2;
+            margin-top: 0pt;
+            margin-bottom: 0pt;
+          "
+        >
+          <br />
+        </p>
+        <p
+          dir="ltr"
+          style="
+            color: rgb(80, 0, 80);
+            font-size: 12.8px;
+            line-height: 1.2;
+            margin-top: 0pt;
+            margin-bottom: 0pt;
+          "
+        >
+          <i
+            ><span
+              style="
+                color: rgb(136, 136, 136);
+                font-family: 'times new roman';
+                font-size: 14.6667px;
+                line-height: 1.2;
+                white-space: pre-wrap;
+                text-align: right;
+              "
+              >W</span
+            ><span
+              style="
+                color: rgb(136, 136, 136);
+                font-family: 'times new roman';
+                font-size: 14.6667px;
+                line-height: 1.2;
+                white-space: pre-wrap;
+                text-align: right;
+              "
+              >e</span
+            ></i
+          ><span
+            style="
+              color: rgb(136, 136, 136);
+              font-family: 'times new roman';
+              font-size: 14.6667px;
+              font-style: italic;
+              line-height: 1.2;
+              white-space: pre-wrap;
+              text-align: right;
+            "
+            >'ve helped hundreds of teens find their best college, all while
+            saving their families millions in higher education. Let us do the
+            same for you.</span
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
