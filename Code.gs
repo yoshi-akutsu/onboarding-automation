@@ -1,39 +1,80 @@
 // Folder globals
-let advisorFolderId = "1Q_eXO663PGZHTxhkxVYmyAtgUw4A_o0T";
+let advisorFolderId;
 let classYear = "21";
 let studentName = "Aaron Johnson";
 let clp = false;
 let athlete = false;
 
-// Scheduler globals
-let onlineOnly = true;
-
 // Welcome email globals
 let alreadyScheduled = false;
 let orientationDate = "Monday, March 20th, from 7pm-830pm";
 let orientationLocation = "bethel";
-let clientEmails = ["akutsu.yoshi@gmail.com", "yoshi@collegeliftoff.org"];
+let clientEmails = [];
 
-let advisor = {
-  fullName: "Yoshi Akutsu",
-  position: "Client Planning Advisor",
-  phoneExtension: "709",
-  email: "yoshi@collegeliftoff.com"
-};
+let advisorData = {};
 
-
-
-
-function main() {
-  copyFiles(contents[0], newClientFolder);
-  copySubFolders(contents[1]);
-  let sharingLink = setSharingGetLink(newClientFolder);
+function main(name, classYearInput, location, date, email, email2, email3, email4, advisor) {
+  switch(advisor) {
+    case "yoshi": 
+      advisorData.fullName = "Yoshi Akutsu",
+      advisorData.position = "Client Planning Advisor",
+      advisorData.phoneExtension = "709",
+      advisorData.advisorEmail = "yoshi@collegeliftoff.com"
+      advisorFolderId = "1Q_eXO663PGZHTxhkxVYmyAtgUw4A_o0T";
+      break;
+    case "juleanna": 
+      advisorData.fullName = "Juleanna Smith";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "710";
+      advisorData.advisorEmail = "juleanna@collegeliftoff.com";
+      advisorFolderId = "1ShNpERNw1XzgfsImtPE3-U9gPxSMbyNR";
+      break;
+    case "emma": 
+      advisorData.fullName = "Emma Mote";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "708";
+      advisorData.advisorEmail = "emma@collegeliftoff.com";
+      adivsorFolderId = "0B63jya8InpGKcHFiaTEzd2N4a0k";
+      break;
+    case "sara":
+      advisorData.fullName = "Sara Kapaj";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "711";
+      advisorData.advisorEmail = "sara@collegeliftoff.com";
+      advisorFolderId = "1a2_I73e_kEIVDf6sV9rvdKlaXXqKID3S";
+      break;
+    case "hannah":
+      advisorData.fullName = "Hannah Laubach";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "712";
+      advisorData.advisorEmail = "hannah@collegeliftoff.com";
+      advisorFolderId = "14OnpfGukM8e7BGso3YYIfSZFF55umQ2w";
+      break;
+    default: 
+      break;
+  }
+  
+  studentName = name;
+  classYear = classYearInput;
+  orientationLocation = location;
+  orientationDate = date;
+  alreadyScheduled = date === null ? false: true;
+  if (email.length > 0) {
+    clientEmails.push(email)
+  }
+  if (email2.length > 0) {
+    clientEmails.push(email2)
+  }
+  if (email3.length > 0) {
+    clientEmails.push(email3)
+  }
+  if (email4.length > 0) {
+    clientEmails.push(email4)
+  }
+  
+  let sharingLink = folderFunction();
   draftWelcomeEmail(sharingLink)
 }
-
-
-
-
 
 
 
@@ -49,17 +90,20 @@ function doGet() {
 
 
 
+
+
+
 // *******************************************************************************
 // START EMAIL WRITING FUNCTIONS
 //
 function draftWelcomeEmail(sharingLink) {
-  if (alreadyScheduled === false) {
+  if (alreadyScheduled === true) {
     let template = HtmlService.createTemplateFromFile("welcome-email");
     template.name = studentName;
     let firstName = studentName.split(" ")[0];
     template.firstName = firstName;
     
-    template.advisor = advisor;
+    template.advisor = advisorData;
     template.sharingLink = sharingLink;
     template.date = orientationDate;
     
@@ -79,7 +123,7 @@ function draftWelcomeEmail(sharingLink) {
     let location = getLocationalAvailability(orientationLocation);
     template.location = location;
 
-    template.advisor = advisor;
+    template.advisor = advisorData;
     template.sharingLink = sharingLink;
     template.availability = availability;
     
@@ -359,67 +403,69 @@ function getCalendarDays() {
 // Start Folder Duplicating functions
 // 
 
-let advisorFolder = getDestinationFolder();
-let newClientFolder = advisorFolder.createFolder(studentName);
-let contents = grabTemplate();
 
-// Gets destination folder
-function getDestinationFolder() {
-  let folders = DriveApp.getFolderById(advisorFolderId).getFolders();
-  let folderName = classYear === "Grad" ? "Grad": "Class" + classYear;
-  while(folders.hasNext()) {
-    let folder = folders.next();
-    if(folder.getName() == folderName) {
-      return folder;
+function folderFunction() {
+  let advisorFolder = getDestinationFolder();
+  let newClientFolder = advisorFolder.createFolder(studentName);
+  let contents = grabTemplate();
+  
+  // Gets destination folder
+  function getDestinationFolder() {
+    let folders = DriveApp.getFolderById(advisorFolderId).getFolders();
+    let folderName = classYear === "Grad" ? "Grad": "Class" + classYear;
+    while(folders.hasNext()) {
+      let folder = folders.next();
+      if(folder.getName() == folderName) {
+        return folder;
+      }
     }
   }
-}
-
-// Gets template folder subfolders and base files
-function grabTemplate() {
-  let templateFolder = DriveApp.getFolderById("0B63jya8InpGKSEFZNGtWeFhNeEU");
-  let baseFiles = templateFolder.getFiles();
-  let baseFolders = templateFolder.getFolders();
-  Logger.log(baseFolders)
-  return ([baseFiles, baseFolders])
-}
-
-function copyFiles(fileiterator, destination) {
-  while(fileiterator.hasNext()) {
-    let file = fileiterator.next();
-    file.makeCopy(file.getName(), destination);
+  
+  // Gets template folder subfolders and base files
+  function grabTemplate() {
+    let templateFolder = DriveApp.getFolderById("0B63jya8InpGKSEFZNGtWeFhNeEU");
+    let baseFiles = templateFolder.getFiles();
+    let baseFolders = templateFolder.getFolders();
+    Logger.log(baseFolders)
+    return ([baseFiles, baseFolders])
   }
-}
-
-function copySubFolders(folderiterator) {
-  while(folderiterator.hasNext()) {
-    let folderToAdd = folderiterator.next();
-    if(clp == false && folderToAdd.getName() == "CLP") {
-      continue;
-    }
-    if(athlete == false && folderToAdd.getName() == "Athlete") {
-      continue;
-    }
-    let addedFolder = newClientFolder.createFolder(folderToAdd.getName());
-    let filesToAdd = folderToAdd.getFiles();
-    while(filesToAdd.hasNext()) {
-      let fileToAdd = filesToAdd.next();
-      fileToAdd.makeCopy(fileToAdd.getName(), addedFolder);
+  
+  function copyFiles(fileiterator, destination) {
+    while(fileiterator.hasNext()) {
+      let file = fileiterator.next();
+      file.makeCopy(file.getName(), destination);
     }
   }
-}
-
-function myFunction() {
+  
+  function copySubFolders(folderiterator) {
+    while(folderiterator.hasNext()) {
+      let folderToAdd = folderiterator.next();
+      if(clp == false && folderToAdd.getName() == "CLP") {
+        continue;
+      }
+      if(athlete == false && folderToAdd.getName() == "Athlete") {
+        continue;
+      }
+      let addedFolder = newClientFolder.createFolder(folderToAdd.getName());
+      let filesToAdd = folderToAdd.getFiles();
+      while(filesToAdd.hasNext()) {
+        let fileToAdd = filesToAdd.next();
+        fileToAdd.makeCopy(fileToAdd.getName(), addedFolder);
+      }
+    }
+  }
+  
+  function setSharingGetLink(folder) {
+    let folderId = folder.getId();
+    folder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.EDIT);
+    return "https://drive.google.com/drive/folders/" + folderId + "?usp=sharing";
+  }
+  
   copyFiles(contents[0], newClientFolder);
   copySubFolders(contents[1]);
-  
+  return setSharingGetLink(newClientFolder);
 }
 
-function setSharingGetLink(folder) {
-  let folderId = folder.getId();
-  folder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.EDIT);
-  return "https://drive.google.com/drive/folders/" + folderId + "?usp=sharing";
-}
 
 // 
 // End Folder Duplicating functions

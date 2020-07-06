@@ -5,17 +5,24 @@
   let date = document.getElementById("date");
   let studentName = document.getElementById("studentName");
   let classYear = document.getElementById("classYear");
-  let year = classYear.options[classYear.selectedIndex].value;
+  let advisor = document.getElementById("advisor");
   let email = document.getElementById("email");
   let email2 = document.getElementById("email2");
   let email3 = document.getElementById("email3");
   let email4 = document.getElementById("email4");
+
+  let alertPrimary = document.querySelector(".alert-primary");
+  let alertSuccess = document.querySelector(".alert-success");
+  let alertDanger = document.querySelector(".alert-danger");
 
   scheduled.addEventListener("click", () => {
     date.disabled === true ? (date.disabled = false) : (date.disabled = true);
   });
 
   newStudentStartUpBtn.addEventListener("click", () => {
+    alertPrimary.style.display = "block";
+    let year = classYear.options[classYear.selectedIndex].value;
+    let advisorName = advisor.options[advisor.selectedIndex].value;
     // Check for valid inputs
     if (studentName.value.length < 1) {
       throwError(1);
@@ -24,6 +31,7 @@
       throwError(2);
     }
 
+    console.log(date.disabled, date.value);
     let startUpObject = {
       name: studentName.value,
       classYear: year,
@@ -32,11 +40,24 @@
       email3: email3.value,
       email4: email4.value,
       location: getLocation(),
-      date: date.disabled === true ? null : date.textContent,
+      advisor: advisorName,
+      plannedDate: date.disabled === true ? null : date.value,
     };
 
     console.log(startUpObject);
-    google.script.run.withSuccessHandler(handleSuccess).run(startUpObject);
+    google.script.run
+      .withSuccessHandler(handleSuccess)
+      .main(
+        startUpObject.name,
+        startUpObject.classYear,
+        startUpObject.location,
+        startUpObject.plannedDate,
+        startUpObject.email,
+        startUpObject.email2,
+        startUpObject.email3,
+        startUpObject.email4,
+        startUpObject.advisor
+      );
   });
 
   function getLocation() {
@@ -56,9 +77,13 @@
   }
 
   function throwError(err) {
+    alertDanger.style.display = "block";
+    alertPrimary.style.display = "none";
     console.log("Invalid inputs." + err);
   }
   function handleSuccess() {
+    alertSuccess.style.display = "block";
+    alertPrimary.style.display = "none";
     console.log(
       "Folder created successfully. Welcome email drafted successfully."
     );
