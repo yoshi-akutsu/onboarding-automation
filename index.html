@@ -1,148 +1,101 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base target="_top" />
+    <base target="_top">
     <?!= include("page-css"); ?>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <div class="header">
-      <h1>Advisor Tools</h1>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
+    <div class="container-fluid">
+      
+        <div class="col">
+          <div class="alert alert-primary" role="alert" style="display:none">
+            Please wait while we process this.
+          </div>
+          <div class="alert alert-danger" role="alert" id="frontend" style="display:none">
+            Something went wrong on the front-end. Check your inputs.
+          </div>
+          <div class="alert alert-danger" role="alert" id="backend" style="display:none">
+            Something went wrong on the back-end. Check your inputs.
+          </div>
+          <div class="alert alert-success" role="alert" style="display:none">
+              Folder created and email drafted.
+          </div>
           <h3>New Client Start Up</h3>
           <p></p>
-
+          
           <form>
             <div class="form-group">
               <label for="studentName">Student Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="studentName"
-                placeholder="Enter student name:"
-              />
+              <input type="text" class="form-control" aria-describedby="nameHelp" id="studentName" placeholder="Jane Doe">
+              <small id="nameHelp" class="form-text text-muted">Please use a first and last name with a space in between.</small>   
             </div>
-
+            
             <div class="form-group">
               <label for="classYear">Graduating Class</label>
               <select class="form-control" id="classYear">
-                <option>21</option>
-                <option>22</option>
-                <option>23</option>
-                <option>24</option>
-                <option>25</option>
-                <option>26</option>
-                <option>27</option>
-                <option>Grad</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="Grad">Grad</option>
               </select>
             </div>
+            
+            <div class="form-group">
+              <label for="advisor">Advisor</label>
+              <select class="form-control" id="advisor">
+                <option value="yoshi">Yoshi</option>
+                <option value="sara">Sara</option>
+                <option value="juleanna">Juleanna</option>
+                <option value="emma">Emma</option>
+                <option value="hannah">Hannah</option>
 
+              </select>
+            </div>
+            
             <div class="form-group">
               <label for="email1">Email addresses</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-              <input
-                type="email"
-                class="form-control"
-                id="email2"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-              <input
-                type="email"
-                class="form-control"
-                id="email3"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-              <input
-                type="email"
-                class="form-control"
-                id="email4"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="email3" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="email4" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
-
+            
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="scheduled"
-              />
-              <label class="form-check-label" for="scheduled"
-                >Already Scheduled?</label
-              >
+              <input class="form-check-input" type="checkbox" value="" id="scheduled">
+              <label class="form-check-label" for="scheduled">Already Scheduled?</label>
             </div>
-
+            
             <div class="form-group">
               <label for="date">When was it scheduled for?</label>
-              <input
-                type="text"
-                class="form-control"
-                id="date"
-                aria-describedby="dateHelp"
-                placeholder="Monday, June 30th from 6-7pm"
-                disabled
-              />
-              <small id="dateHelp" class="form-text text-muted"
-                >This string is directly placed in the email, so follow the
-                guided formatting.</small
-              >
+              <input type="text" class="form-control" id="date" aria-describedby="dateHelp" placeholder="Monday, June 30th from 6-7pm" disabled>
+              <small id="dateHelp" class="form-text text-muted">This string is directly placed in the email, so follow the guided formatting.</small>              
             </div>
-
+            
             <label>Location</label>
             <div class="form-check">
-              <input
-                class="form-check-input"
-                name="locations"
-                type="radio"
-                value="option1"
-                id="online"
-                checked
-              />
+              <input class="form-check-input" name="locations" type="radio" value="option1" id="online" checked>
               <label class="form-check-label" for="online">Online</label>
             </div>
             <div class="form-check">
-              <input
-                class="form-check-input"
-                name="locations"
-                type="radio"
-                value="option2"
-                id="bethel"
-              />
+              <input class="form-check-input" name="locations" type="radio" value="option2" id="bethel">
               <label class="form-check-label" for="bethel">Bethel</label>
             </div>
             <div class="form-check">
-              <input
-                class="form-check-input"
-                name="locations"
-                type="radio"
-                value="option3"
-                id="powell"
-              />
+              <input class="form-check-input" name="locations" type="radio" value="option3" id="powell">
               <label class="form-check-label" for="powell">Powell</label>
             </div>
           </form>
-
+          
           <button class="btn btn-primary" id="newStudentStartUp">Run It</button>
         </div>
       </div>
     </div>
     <?!= include("page-js"); ?>
+  
   </body>
 </html>

@@ -13,7 +13,8 @@
 
   let alertPrimary = document.querySelector(".alert-primary");
   let alertSuccess = document.querySelector(".alert-success");
-  let alertDanger = document.querySelector(".alert-danger");
+  let alertDanger = document.querySelector("#frontend");
+  let alertDangerBackend = document.querySelector("#backend");
 
   scheduled.addEventListener("click", () => {
     date.disabled === true ? (date.disabled = false) : (date.disabled = true);
@@ -47,6 +48,7 @@
     console.log(startUpObject);
     google.script.run
       .withSuccessHandler(handleSuccess)
+      .withFailureHandler(backendError)
       .main(
         startUpObject.name,
         startUpObject.classYear,
@@ -74,6 +76,12 @@
     if (powell.checked === true) {
       return "powell";
     }
+  }
+
+  function backendError(error) {
+    alertDangerBackend.textContent = error;
+    alertPrimary.style.display = "none";
+    alertDangerBackend.style.display = "block";
   }
 
   function throwError(err) {
