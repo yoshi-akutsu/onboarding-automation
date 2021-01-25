@@ -12,44 +12,109 @@ let orientationLocation = "bethel";
 let clientEmails = [];
 
 let advisorData = {};
+let crmEmail = "";
 
-function main(name, classYearInput, location, date, email, email2, email3, email4, advisor) {
+function main(name, classYearInput, location, date, email, email2, email3, email4, advisor, crm) {
   switch(advisor) {
     case "yoshi": 
       advisorData.fullName = "Yoshi Akutsu",
-      advisorData.position = "Client Planning Advisor",
+      advisorData.position = "Lead Advisor",
       advisorData.phoneExtension = "709",
-      advisorData.advisorEmail = "yoshi@collegeliftoff.com"
+      advisorData.advisorEmail = "yoshi@incollegeplanning.com"
       advisorFolderId = "1Q_eXO663PGZHTxhkxVYmyAtgUw4A_o0T";
       break;
     case "juleanna": 
       advisorData.fullName = "Juleanna Smith";
-      advisorData.position = "Client Planning Advisor";
+      advisorData.position = "Lead Advisor";
       advisorData.phoneExtension = "710";
-      advisorData.advisorEmail = "juleanna@collegeliftoff.com";
+      advisorData.advisorEmail = "juleanna@incollegeplanning.com";
       advisorFolderId = "1ShNpERNw1XzgfsImtPE3-U9gPxSMbyNR";
       break;
     case "emma": 
       advisorData.fullName = "Emma Mote";
-      advisorData.position = "Client Planning Advisor";
+      advisorData.position = "Lead Advisor";
       advisorData.phoneExtension = "708";
-      advisorData.advisorEmail = "emma@collegeliftoff.com";
-      adivsorFolderId = "0B63jya8InpGKcHFiaTEzd2N4a0k";
+      advisorData.advisorEmail = "emma@incollegeplanning.com";
+      advisorFolderId = "1_LtIxQK55IpfpucsvzyZbFiphMtS46L_";
       break;
     case "sara":
       advisorData.fullName = "Sara Kapaj";
-      advisorData.position = "Client Planning Advisor";
+      advisorData.position = "Lead Advisor";
       advisorData.phoneExtension = "711";
-      advisorData.advisorEmail = "sara@collegeliftoff.com";
+      advisorData.advisorEmail = "sara@incollegeplanning.com";
       advisorFolderId = "1a2_I73e_kEIVDf6sV9rvdKlaXXqKID3S";
       break;
     case "hannah":
       advisorData.fullName = "Hannah Laubach";
       advisorData.position = "Client Planning Advisor";
       advisorData.phoneExtension = "712";
-      advisorData.advisorEmail = "hannah@collegeliftoff.com";
+      advisorData.advisorEmail = "hannah@incollegeplanning.com";
       advisorFolderId = "14OnpfGukM8e7BGso3YYIfSZFF55umQ2w";
       break;
+    case "chris":
+      advisorData.fullName = "Chris Prculovski";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "716";
+      advisorData.advisorEmail = "chris.prculovski@incollegeplanning.org";
+      advisorFolderId = "1t9bth_QhCHps8JEpYsDB2D6GTLZQ4BnO";
+      break;
+    case "sian":
+      advisorData.fullName = "Siân Lewis";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "723";
+      advisorData.advisorEmail = "sian@incollegeplanning.com";
+      advisorFolderId = "15wyRPeDt9KTi1Yata0CMzSmTBxJMdLFq";
+      break;
+    case "eric":
+      advisorData.fullName = "Eric Martinez";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "718";
+      advisorData.advisorEmail = "eric@incollegeplanning.com";
+      advisorFolderId = "1FNqq4KLUVSQAv11QPetJnAX4dgChDXQn";
+      break;
+    case "alecea":
+      advisorData.fullName = "Alecea Howell";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "721";
+      advisorData.advisorEmail = "alecea@incollegeplanning.com";
+      advisorFolderId = "1lpbYG4aaOEt9q1yFt8i38cHMdmGjCuGT";
+      break;
+    case "sam":
+      advisorData.fullName = "Sam Rubinoski";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "720";
+      advisorData.advisorEmail = "samantha@incollegeplanning.com";
+      advisorFolderId = "11wO-QJ6Q3jYFrEFq6180z8fpzyvlY25j";
+      break;
+    case "reilly":
+      advisorData.fullName = "Reilly Grealis";
+      advisorData.position = "Client Planning Advisor";
+      advisorData.phoneExtension = "719";
+      advisorData.advisorEmail = "reilly@incollegeplanning.com";
+      advisorFolderId = "1e8cZb-wiJ2lZ6AP2FEKQIJjqDxw0bsUX";
+      break;
+    default: 
+      break;
+  }
+  
+  switch(crm) {
+    case "aaron":
+      crmEmail = "aaron@incollegeplanning.com";
+      break;
+    case "emma":
+      crmEmail = "emma@incollegeplanning.com";
+      break;
+    case "richard":
+      crmEmail = "richard@incollegeplanning.com";
+      break;
+    case "heather":
+      crmEmail = "heather@incollegeplanning.com";
+      break;
+    case "melissa":
+      crmEmail = "melissa@incollegeplanning.com";
+      break;
+    case "alex":
+      crmEmail = "alexandra@incollegeplanning.com"
     default: 
       break;
   }
@@ -97,6 +162,33 @@ function doGet() {
 // START EMAIL WRITING FUNCTIONS
 //
 function draftWelcomeEmail(sharingLink) {
+  let ccString = "aaron@incollegeplanning.com, emma@incollegeplanning.com";
+  if (crmEmail.length > 0 && crmEmail != "aaron@incollegeplanning.com") {
+    if (crmEmail == "richard@incollegeplanning.com") {
+      ccString = ccString.concat("," + "alexandra@incollegeplanning.com")
+    }
+    ccString = ccString.concat("," + crmEmail);
+  } 
+  switch (advisorData.fullName) {
+    case "Alecea Howell":
+      ccString = ccString.concat("," + "yoshi@incollegeplanning.com");
+      break;
+    case "Siân Lewis":
+      ccString = ccString.concat("," + "yoshi@incollegeplanning.com");
+      break;
+    case "Eric Martinez":
+      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
+      break;
+    case "Reilly Grealis":
+      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
+      break;
+    case "Sam Rubinoski":
+      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
+      break;
+    default: 
+      break;
+  }
+  
   if (alreadyScheduled === true) {
     let template = HtmlService.createTemplateFromFile("welcome-email");
     template.name = studentName;
@@ -111,7 +203,7 @@ function draftWelcomeEmail(sharingLink) {
     template.location = location;
     
     let message = template.evaluate().getContent();
-    GmailApp.createDraft(clientEmails.toString(), "Welcome to College Liftoff!", message, { htmlBody: message, cc: "aaron@collegeliftoff.com, paige@collegeliftoff.com" })
+    GmailApp.createDraft(clientEmails.toString(), "Welcome to IN — the College Planning Experts!", message, { htmlBody: message, cc: ccString })
   }
   else {
     let availability = getAvailability(getCalendarDays());
@@ -128,7 +220,7 @@ function draftWelcomeEmail(sharingLink) {
     template.availability = availability;
     
     let message = template.evaluate().getContent();
-    GmailApp.createDraft(clientEmails.toString(), "Welcome to College Liftoff!", message, { htmlBody: message, cc: "aaron@collegeliftoff.com, paige@collegeliftoff.com" })
+    GmailApp.createDraft(clientEmails.toString(), "Welcome to IN — the College Planning Experts!", message, { htmlBody: message, cc: ccString })
   }
 }
 
@@ -142,6 +234,9 @@ function getLocationalAvailability(location) {
   }
   if (lowered === "online") {
     return "online";
+  }
+  if (lowered === "bexley") {
+    return "at our office – 2511 E. Main St"
   }
 }
 
