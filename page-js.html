@@ -1,99 +1,105 @@
 <script>
   // New Student Start Up
-  let newStudentStartUpBtn = document.getElementById("newStudentStartUp");
-  let scheduled = document.getElementById("scheduled");
-  let date = document.getElementById("date");
-  let studentName = document.getElementById("studentName");
-  let classYear = document.getElementById("classYear");
-  let advisor = document.getElementById("advisor");
-  let email = document.getElementById("email");
-  let email2 = document.getElementById("email2");
-  let email3 = document.getElementById("email3");
-  let email4 = document.getElementById("email4");
-
-  let alertPrimary = document.querySelector(".alert-primary");
-  let alertSuccess = document.querySelector(".alert-success");
-  let alertDanger = document.querySelector("#frontend");
-  let alertDangerBackend = document.querySelector("#backend");
-
-  scheduled.addEventListener("click", () => {
-    date.disabled === true ? (date.disabled = false) : (date.disabled = true);
-  });
-
-  newStudentStartUpBtn.addEventListener("click", () => {
-    alertPrimary.style.display = "block";
-    let year = classYear.options[classYear.selectedIndex].value;
-    let advisorName = advisor.options[advisor.selectedIndex].value;
-    // Check for valid inputs
-    if (studentName.value.length < 1) {
-      throwError(1);
+    let newStudentStartUpBtn = document.getElementById("newStudentStartUp");
+    let scheduled = document.getElementById("scheduled");
+    let date = document.getElementById("date");
+    let studentName = document.getElementById("studentName");
+    let classYear = document.getElementById("classYear");
+    let advisor = document.getElementById("advisor");
+    let crm = document.getElementById("crm");
+    let email = document.getElementById("email");
+    let email2 = document.getElementById("email2");
+    let email3 = document.getElementById("email3");
+    let email4 = document.getElementById("email4");
+    
+    let alertPrimary = document.querySelector(".alert-primary");
+    let alertSuccess = document.querySelector(".alert-success");
+    let alertDanger = document.querySelector("#frontend");
+    let alertDangerBackend = document.querySelector("#backend");
+    
+    scheduled.addEventListener("click", () => {
+      date.disabled === true ? date.disabled = false: date.disabled = true;
+    })
+    
+    newStudentStartUpBtn.addEventListener("click", () => {
+      alertPrimary.style.display = "block";
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      newStudentStartUp.disabled = true;
+      scheduled.disabled = true;
+      date.disabled = true;
+      studentName.disabled = true;
+      classYear.disabled = true;
+      advisor.disabled = true;
+      crm.disabled = true;
+      email.disabled = true;
+      email2.disabled = true;
+      email3.disabled = true;
+      email4.disabled = true;
+      let year = classYear.options[classYear.selectedIndex].value; 
+      let advisorName = advisor.options[advisor.selectedIndex].value;
+      let crmName = crm.options[crm.selectedIndex].value;
+      // Check for valid inputs
+      if (studentName.value.length < 1) {
+        throwError(1)
+      }
+      if (email.value.length < 1) {
+        throwError(2)
+      }
+      
+      console.log(date.disabled, date.value);
+      let startUpObject = {
+        name: studentName.value,
+        classYear: year,
+        email: email.value,
+        email2: email2.value,
+        email3: email3.value,
+        email4: email4.value,
+        location: getLocation(),
+        advisor: advisorName,
+        crm: crmName,
+        plannedDate: date.disabled === true ? date.value : null
+      }
+      
+      console.log(startUpObject);
+      google.script.run.withSuccessHandler(handleSuccess).withFailureHandler(backendError).main(startUpObject.name, startUpObject.classYear, startUpObject.location, startUpObject.plannedDate, startUpObject.email, startUpObject.email2, startUpObject.email3, startUpObject.email4, startUpObject.advisor, startUpObject.crm);
+  
+    })
+    
+    function getLocation() {
+      let online = document.getElementById("online");
+      let bethel = document.getElementById("bethel");
+      let powell = document.getElementById("powell");
+      let bexley = document.getElementById("bexley");
+  
+  
+      if (online.checked === true) {
+        return "online";
+      }
+      if (bethel.checked === true) {
+        return "bethel";
+      }
+      if (powell.checked === true) {
+        return "powell";
+      }
+      if (bexley.checked === true) {
+        return "bexley";
+      }
     }
-    if (email.value.length < 1) {
-      throwError(2);
+    
+    function backendError(error) {
+      alertDangerBackend.textContent = error;
+      alertPrimary.style.display = "none";
+      alertDangerBackend.style.display = "block";
     }
-
-    console.log(date.disabled, date.value);
-    let startUpObject = {
-      name: studentName.value,
-      classYear: year,
-      email: email.value,
-      email2: email2.value,
-      email3: email3.value,
-      email4: email4.value,
-      location: getLocation(),
-      advisor: advisorName,
-      plannedDate: date.disabled === true ? null : date.value,
-    };
-
-    console.log(startUpObject);
-    google.script.run
-      .withSuccessHandler(handleSuccess)
-      .withFailureHandler(backendError)
-      .main(
-        startUpObject.name,
-        startUpObject.classYear,
-        startUpObject.location,
-        startUpObject.plannedDate,
-        startUpObject.email,
-        startUpObject.email2,
-        startUpObject.email3,
-        startUpObject.email4,
-        startUpObject.advisor
-      );
-  });
-
-  function getLocation() {
-    let online = document.getElementById("online");
-    let bethel = document.getElementById("bethel");
-    let powell = document.getElementById("powell");
-
-    if (online.checked === true) {
-      return "online";
+    
+    function throwError(err) {
+      alertDanger.style.display = "block";
+      alertPrimary.style.display = "none";
+      console.log("Invalid inputs." + err)
     }
-    if (bethel.checked === true) {
-      return "bethel";
+    function handleSuccess() {
+      alertSuccess.style.display = "block";
+      alertPrimary.style.display = "none";
+      console.log("Folder created successfully. Welcome email drafted successfully.")
     }
-    if (powell.checked === true) {
-      return "powell";
-    }
-  }
-
-  function backendError(error) {
-    alertDangerBackend.textContent = error;
-    alertPrimary.style.display = "none";
-    alertDangerBackend.style.display = "block";
-  }
-
-  function throwError(err) {
-    alertDanger.style.display = "block";
-    alertPrimary.style.display = "none";
-    console.log("Invalid inputs." + err);
-  }
-  function handleSuccess() {
-    alertSuccess.style.display = "block";
-    alertPrimary.style.display = "none";
-    console.log(
-      "Folder created successfully. Welcome email drafted successfully."
-    );
-  }
-</script>
+  </script>
