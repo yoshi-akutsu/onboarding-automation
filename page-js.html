@@ -6,7 +6,6 @@
     let studentName = document.getElementById("studentName");
     let classYear = document.getElementById("classYear");
     let advisor = document.getElementById("advisor");
-    let crm = document.getElementById("crm");
     let email = document.getElementById("email");
     let email2 = document.getElementById("email2");
     let email3 = document.getElementById("email3");
@@ -30,14 +29,12 @@
       studentName.disabled = true;
       classYear.disabled = true;
       advisor.disabled = true;
-      crm.disabled = true;
       email.disabled = true;
       email2.disabled = true;
       email3.disabled = true;
       email4.disabled = true;
       let year = classYear.options[classYear.selectedIndex].value; 
       let advisorName = advisor.options[advisor.selectedIndex].value;
-      let crmName = crm.options[crm.selectedIndex].value;
       // Check for valid inputs
       if (studentName.value.length < 1) {
         throwError(1)
@@ -56,18 +53,16 @@
         email4: email4.value,
         location: getLocation(),
         advisor: advisorName,
-        crm: crmName,
         plannedDate: date.disabled === true ? date.value : null
       }
       
       console.log(startUpObject);
-      google.script.run.withSuccessHandler(handleSuccess).withFailureHandler(backendError).main(startUpObject.name, startUpObject.classYear, startUpObject.location, startUpObject.plannedDate, startUpObject.email, startUpObject.email2, startUpObject.email3, startUpObject.email4, startUpObject.advisor, startUpObject.crm);
+      google.script.run.withSuccessHandler(handleSuccess).withFailureHandler(backendError).main(startUpObject.name, startUpObject.classYear, startUpObject.location, startUpObject.plannedDate, startUpObject.email, startUpObject.email2, startUpObject.email3, startUpObject.email4, startUpObject.advisor);
   
     })
     
     function getLocation() {
       let online = document.getElementById("online");
-      // let bethel = document.getElementById("bethel");
       let powell = document.getElementById("powell");
       let bexley = document.getElementById("bexley");
   
@@ -75,9 +70,6 @@
       if (online.checked === true) {
         return "online";
       }
-      // if (bethel.checked === true) {
-        //return "bethel";
-      //}
       if (powell.checked === true) {
         return "powell";
       }

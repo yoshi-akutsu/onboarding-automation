@@ -23,8 +23,7 @@ function main(
   email2,
   email3,
   email4,
-  advisor,
-  crm
+  advisor
 ) {
   switch (advisor) {
     case "yoshi":
@@ -33,7 +32,6 @@ function main(
       advisorData.phoneExtension = "709";
       advisorData.advisorEmail = "yoshi@incollegeplanning.com";
       advisorFolderId = "1Q_eXO663PGZHTxhkxVYmyAtgUw4A_o0T";
-      //advisorData.advisorPicture = "https://incollegeplanning.com/wp-content/uploads/2020/12/Yoshi.jpg";
       advisorData.advisorPicture =
         "https://lh3.googleusercontent.com/5-wkPSaLXGJ9UMTc_CdDj1T4Oml7VjmBwMRKVNpe0fMAFvRLmckgnPG-VKhjqLyfbFdKY4zrqUvMF3VZPYaPrQv4QCa4cGIe2uE54we23FMwl47PzPJtZYOGQvrwhBot2VO7knWT-w=w2400";
       advisorData.advisorBio =
@@ -73,52 +71,6 @@ function main(
         "https://incollegeplanning.com/wp-content/uploads/2020/12/Sara.jpg";
       advisorData.advisorBio = "";
       break;
-    case "hannah":
-      advisorData.fullName = "Hannah Laubach";
-      advisorData.position = "Client Planning Advisor";
-      advisorData.phoneExtension = "712";
-      advisorData.advisorEmail = "hannah@incollegeplanning.com";
-      advisorFolderId = "14OnpfGukM8e7BGso3YYIfSZFF55umQ2w";
-      advisorData.advisorPicture =
-        "https://lh3.googleusercontent.com/naZ_KxT5Td7HUYLPWvxBOUye628Dw_NvkOThGMG4i410JCaZ0iOSS2TShuk6Sdp1BHRBSKVG4FccSckyNm-NiTsiTUAOSFJ__SCLlaWvb1-GM_GRJjIFqRy9rjvP0WWpALKh0-aUYg=w2400";
-      //advisorData.advisorPicture = "https://incollegeplanning.com/wp-content/uploads/2020/12/Hannah.jpg"
-      advisorData.advisorBio =
-        "I'm Hannah and I'm the advisor you'll be working with! I'm originally from the Akron area and I moved to Columbus to attend Ohio State. I was an English major with a minor in Professional Writing where I also worked in OSU's writing center. That's actually how I got started here at IN--The College Planning Experts! I came on to help rework the way we do our Writing Center and that allowed me to see how beneficial the rest of what we do is for our students. And now, I love helping everyone find their best path towards what they want to do, so I'm really excited to get started with you.";
-      break;
-    case "chris":
-      advisorData.fullName = "Chris Prculovski";
-      advisorData.position = "Client Planning Advisor";
-      advisorData.phoneExtension = "716";
-      advisorData.advisorEmail = "chris.prculovski@incollegeplanning.org";
-      advisorFolderId = "1t9bth_QhCHps8JEpYsDB2D6GTLZQ4BnO";
-      advisorData.advisorPicture =
-        "https://incollegeplanning.com/wp-content/uploads/2020/12/Chris.jpg";
-      advisorData.advisorBio = "";
-      break;
-    case "sian":
-      advisorData.fullName = "Siân Lewis";
-      advisorData.position = "Client Planning Advisor";
-      advisorData.phoneExtension = "723";
-      advisorData.advisorEmail = "sian@incollegeplanning.com";
-      advisorFolderId = "15wyRPeDt9KTi1Yata0CMzSmTBxJMdLFq";
-      advisorData.advisorPicture =
-        "https://lh3.googleusercontent.com/UXsZpqXmY1mDxkL0spAqcp4OTG02hqd5rHtVHoqUWCn7PNHaTQoRsJKu6Lhh9t10OtfP3n9YGUvc1Ops1ovuPHOFIQ3YSgn1Ij5UNYwSUsozvlAdu-1lobs5Ey27kKChTQ1hVCEhqA=w2400";
-      //advisorData.advisorPicture = "https://incollegeplanning.com/wp-content/uploads/2020/10/sian.jpg";
-      advisorData.advisorBio =
-        "My name is Siân (pronounced almost like “sharn”), and I’m originally from England. I moved here at 18 years old to attend Davidson College, which is a small Liberal Arts school in North Carolina. All of my family is still across the pond, so I try to get back there as often as I can! I graduated with degrees in Political Science and Music, and I loved my college experience. After working with the Admissions Team at Davidson however, I realized that a lot of students don’t really have a plan for after they graduate. That’s why I joined IN—the College Planning Experts Team. I am really excited to meet you all, and to start this journey with you. ";
-      break;
-    case "eric":
-      advisorData.fullName = "Eric Martinez";
-      advisorData.position = "Client Planning Advisor";
-      advisorData.phoneExtension = "718";
-      advisorData.advisorEmail = "eric@incollegeplanning.com";
-      advisorFolderId = "1FNqq4KLUVSQAv11QPetJnAX4dgChDXQn";
-      advisorData.advisorPicture =
-        "https://lh3.googleusercontent.com/jGnyRZj8r3OX915Px8TfzcIDZZSxX6q-JGaUGjG-ew3WGknqDiiYhjWAxM0eeUyAabrvnwRoGyEuhgvbm13bSqYdcb5LZX0HZSkco87HGc9HerlEAve3y9fmyX2O9ScviiJOtyKUXA=w2400";
-      //advisorData.advisorPicture = "https://incollegeplanning.com/wp-content/uploads/2020/12/Eric.jpg";
-      advisorData.advisorBio =
-        "My name is Eric Martinez and even though I’m originally from Texas, I’ve been proud to call Ohio my home for over the last 17 years. I would best describe my college path as non-traditional. I first attended Kent State University in hopes of one day becoming a mental health therapist, but as time went on I became more indecisive of what career I wanted to pursue. This ultimately led to me taking some time off school. Eventually, I returned to pursue my psychology degree which I ultimately completed at Kent State. Throughout that time, I gradually gained a passion for student development and academic success. I now channel those passions as a college planning advisor here at IN—The College Planning experts. I’m excited to work with everyone and guide you all through this process!";
-      break;
     case "alecea":
       advisorData.fullName = "Alecea Howell";
       advisorData.position = "Client Planning Advisor";
@@ -155,17 +107,6 @@ function main(
       advisorData.advisorBio =
         "My name is Reilly and I'm from Strongsville, Ohio (near Cleveland). I attended Ohio State University and got a Bachelor of Arts in English Literature. I've always loved to read and write stories, which is why I pursued English. Although I loved my degree and gaining that knowledge, I definitely wish I had planned better for what came next. That's why I started working at IN—The College Planning Experts: to help others plan their next! I'm also a Writing Center advisor and I'm very thankful I still get to use my degree. I can't wait to help you figure out your career and educational path!";
       break;
-    case "alex":
-      advisorData.fullName = "Alex Horn";
-      advisorData.position = "College Planning Advisor";
-      advisorData.phoneExtension = "711";
-      advisorData.advisorEmail = "alex@incollegeplanning.com";
-      advisorFolderId = "1CNdMFFjCxAk_RVs6TuMUBJIfQ73Tm1vW";
-      advisorData.advisorPicture =
-        "https://lh3.googleusercontent.com/kEK5MfIiMjY8jmzKPga8duGDYTICsmjdQ5bPn4Tme0U8ZOeocFltBeWnIia59-OS7gcZhSwlWQeiTh1RdDaHYES_aNEWgVo7VJlLz38d6JMF18-mvS-do0sJ4b_w_nxaGEz1-6TBAw=w2400";
-      advisorData.advisorBio =
-        "My name is Alex Horn and I graduated from George Mason University with a degree in Government and the University of Oklahoma with a master’s degree in Higher Education. My passion for mentorship and youth development comes from my experience working as a collegiate recreational sports professional for 7 years across 3 different universities. Throughout the opportunities I had to interact with students during that time, I regularly found myself speaking with them about anxiety related to their finances, career, or educational programs. In having those discussions, I realized that I wanted to find a way to help students improve their outcomes before and after college. I’m excited to fulfill my role as a college academic advisor with IN and the families that trust us with guiding their child’s future. The college selection process is one of the most exciting and emotional times for any family, and I look forward to being there for you as we discover the next step on your child’s journey.";
-      break;
     case "drake":
       advisorData.fullName = "Drake Hankins";
       advisorData.position = "College Planning Advisor";
@@ -199,33 +140,20 @@ function main(
       advisorData.advisorBio =
         "My name is Lydia and I am incredibly excited to work with you and your support system as we discover your best post-secondary path. Originally from Texas, I moved to Ohio to attend Otterbein University despite not having a clear idea of future careers or a set financial plan for success. Thankfully, I loved my school and majors (English & Music) and all of the opportunities the programs afforded me. One of my favorite experiences was working within the Writing Center-- something that encouraged me to continue teaching, first with Duke TIP summer programs and then eventually moving to South Korea as an ESL elementary teacher. Being a part of Inspireducation allows me to use the communication and teaching skills I’ve honed over the years as well as share my passion for equal access among educational resources. I am thrilled to see Inspireducation continue to grow and reach wonderful members of our community!";
       break;
+    case "coco":
+      advisorData.fullName = "Coco Marcil";
+      advisorData.position = "College Planning Advisor";
+      advisorData.phoneExtension = "712";
+      advisorData.advisorEmail = "coco@incollegeplanning.com";
+      advisorFolderId = "1uEcm_NvFMvDk2jG-F69Qf9Pek_XorsAl";
+      advisorData.advisorPicture = "";
+      advisorData.advisorBio = "";
+      break;
     default:
       break;
   }
 
   // advisorData.advisorBio = splitBio(advisorData.advisorBio);
-
-  switch (crm) {
-    case "aaron":
-      crmEmail = "aaron@incollegeplanning.com";
-      break;
-    case "emma":
-      crmEmail = "emma@incollegeplanning.com";
-      break;
-    case "richard":
-      crmEmail = "richard@incollegeplanning.com";
-      break;
-    case "heather":
-      crmEmail = "heather@incollegeplanning.com";
-      break;
-    //case "melissa":
-    //  crmEmail = "melissa@incollegeplanning.com";
-    //  break;
-    case "alex":
-      crmEmail = "alexandra@incollegeplanning.com";
-    default:
-      break;
-  }
 
   studentName = name;
   classYear = classYearInput;
@@ -266,29 +194,16 @@ function draftWelcomeEmail(sharingLink) {
   let ccString = "aaron@incollegeplanning.com, emma@incollegeplanning.com";
   // Defaults all CRM emails to Heather
   crmEmail = "heather@incollegeplanning.com";
-  if (crmEmail.length > 0 && crmEmail != "aaron@incollegeplanning.com") {
-    if (crmEmail == "richard@incollegeplanning.com") {
-      ccString = ccString.concat("," + "alexandra@incollegeplanning.com");
-    }
-    ccString = ccString.concat("," + crmEmail);
-  }
+  ccString = ccString.concat("," + crmEmail);
+
   switch (advisorData.fullName) {
     case "Alecea Howell":
       ccString = ccString.concat("," + "yoshi@incollegeplanning.com");
-      break;
-    case "Siân Lewis":
-      ccString = ccString.concat("," + "yoshi@incollegeplanning.com");
-      break;
-    case "Eric Martinez":
-      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
       break;
     case "Reilly Grealis":
       ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
       break;
     case "Sam Rubinoski":
-      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
-      break;
-    case "Alex Horn":
       ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
       break;
     case "Sarah Cook":
@@ -298,7 +213,10 @@ function draftWelcomeEmail(sharingLink) {
       ccString = ccString.concat("," + "yoshi@incollegeplanning.com");
       break;
     case "Lydia Crannell":
-      ccString = ccString.concat("," + "yoshi@incollegeplanning.com");
+      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
+      break;
+    case "Coco Marcil":
+      ccString = ccString.concat("," + "juleanna@incollegeplanning.com");
       break;
     default:
       break;
@@ -376,9 +294,6 @@ function splitBio(bio) {
 
 function getLocationalAvailability(location) {
   let lowered = location.toLowerCase();
-  if (lowered === "bethel") {
-    return "at our office – 5202 Bethel-Reed Park, Suite 140";
-  }
   if (lowered === "powell") {
     return "at our office – 3897 W. Powell Rd";
   }

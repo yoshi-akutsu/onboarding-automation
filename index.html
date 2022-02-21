@@ -6,21 +6,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+    <div class="col alert-box">
+      <div class="alert alert-primary" role="alert" style="display:none">
+        Please wait while we process this.
+      </div>
+      <div class="alert alert-danger" role="alert" id="frontend" style="display:none">
+        Something went wrong on the front-end. Check your inputs.
+      </div>
+      <div class="alert alert-danger" role="alert" id="backend" style="display:none">
+        Something went wrong on the back-end. Check your inputs.
+      </div>
+      <div class="alert alert-success" role="alert" style="display:none">
+        Folder created and email drafted.
+      </div>
+    <img src="https://lh3.googleusercontent.com/uUmO46OEXIPsx3xffq-YWiAS2S7Hb5HnXA2TvpM1rdYffQrDizLpcvLE_u6jWNIUX2M3DFtrElH48Jkl_lHhFmFSy_nNTe8F84AxJ7pJdnTDkKZi9-6KrXaBcJ-aYR09NiNuxg8C9A=w2400"></img> 
     <div class="container-fluid">
-      
-        <div class="col">
-          <div class="alert alert-primary" role="alert" style="display:none">
-            Please wait while we process this.
-          </div>
-          <div class="alert alert-danger" role="alert" id="frontend" style="display:none">
-            Something went wrong on the front-end. Check your inputs.
-          </div>
-          <div class="alert alert-danger" role="alert" id="backend" style="display:none">
-            Something went wrong on the back-end. Check your inputs.
-          </div>
-          <div class="alert alert-success" role="alert" style="display:none">
-              Folder created and email drafted.
-          </div>
+          
           <h3>New Client Start Up</h3>
           <p></p>
           
@@ -48,26 +49,16 @@
             <div class="form-group">
               <label for="advisor">Advisor</label>
               <select class="form-control" id="advisor">
-                <option value="yoshi">Yoshi</option>
-                <option value="juleanna">Juleanna</option>
-                <option value="emma">Emma</option>
                 <option value="alecea">Alecea</option>
-                <option value="sam">Sam</option>
-                <option value="reilly">Reilly</option>
-                <option value="sarah">Sarah</option>
+                <option value="coco">Coco</option>
                 <option value="drake">Drake</option>
-                <option value="lydia">Lydia</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="crm">CRM</label>
-              <select class="form-control" id="crm">
-                <option value="heather">Heather</option>
-                <option value="aaron">Aaron</option>
                 <option value="emma">Emma</option>
-                <option value="richard">Richard</option>
-                <option value="alex">Alex</option>
+                <option value="juleanna">Juleanna</option>
+                <option value="lydia">Lydia</option>
+                <option value="reilly">Reilly</option>
+                <option value="sam">Sam</option>
+                <option value="sarah">Sarah</option>
+                <option value="yoshi">Yoshi</option>                
               </select>
             </div>
             
@@ -87,7 +78,7 @@
             <div class="form-group">
               <label for="date">When was it scheduled for?</label>
               <input type="text" class="form-control" id="date" aria-describedby="dateHelp" placeholder="Monday, June 30th from 6-7pm" disabled>
-              <small id="dateHelp" class="form-text text-muted">This string is directly placed in the email, so follow the guided formatting.</small>              
+              <small id="dateHelp" class="form-text text-muted">This text is directly placed in the email, so follow the guided formatting.</small>              
             </div>
             
             <label>Location</label>
@@ -95,10 +86,6 @@
               <input class="form-check-input" name="locations" type="radio" value="option1" id="online" checked>
               <label class="form-check-label" for="online">Online</label>
             </div>
-            <!-- <div class="form-check">
-              <input class="form-check-input" name="locations" type="radio" value="option2" id="bethel">
-              <label class="form-check-label" for="bethel">Bethel</label>
-            </div> -->
             <div class="form-check">
               <input class="form-check-input" name="locations" type="radio" value="option3" id="powell">
               <label class="form-check-label" for="powell">Powell</label>
@@ -108,7 +95,7 @@
               <label class="form-check-label" for="bexley">Bexley</label>
             </div>
           </form>
-          
+          <br>
           <button class="btn btn-primary" id="newStudentStartUp">Run It</button>
         </div>
       </div>
